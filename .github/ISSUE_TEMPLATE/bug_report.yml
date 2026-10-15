@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a problem with Timely
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Timely version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version, monitors, and scaling
+      placeholder: Windows 11, one monitor, 125%
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce and expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Relevant log lines
+      description: Open Log in Timely. Remove your Windows username and personal paths before posting.
+      render: text

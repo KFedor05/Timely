@@ -1,0 +1,11 @@
+bin/
+obj/
+*.user
+.vs/
+.idea/
+dist/
+artifacts/
+*.log
+*.pdb
+settings.json
+state.json

@@ -1,0 +1,109 @@
+<Window x:Class="Timely.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Timely"
+        Width="470"
+        SizeToContent="Height"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Icon="timely.ico"
+        FontFamily="Segoe UI"
+        UseLayoutRounding="True"
+        Background="{DynamicResource T.Surface}"
+        Foreground="{DynamicResource T.Text}">
+
+    <ScrollViewer Background="{DynamicResource T.Surface}"
+                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+    <StackPanel Margin="30,24,30,22">
+
+        <TextBlock x:Name="StatusText"
+                   FontSize="20"
+                   TextWrapping="Wrap"
+                   Foreground="{DynamicResource T.Text}"/>
+
+        <Border Height="6"
+                CornerRadius="3"
+                Margin="0,14,0,22"
+                Background="{DynamicResource T.Track}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="ProgressColumn" Width="0*"/>
+                    <ColumnDefinition x:Name="RemainderColumn" Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="ProgressFill"
+                        Grid.Column="0"
+                        CornerRadius="3"
+                        Background="{DynamicResource T.Accent}"/>
+            </Grid>
+        </Border>
+
+        <TextBlock x:Name="ControlsLabel" Style="{StaticResource SectionLabelStyle}"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Button x:Name="BreakNowButton"
+                    Style="{StaticResource GhostButtonStyle}"
+                    Margin="0,0,8,0"
+                    Click="OnBreakNowClick"/>
+            <Button x:Name="ResetButton"
+                    Style="{StaticResource GhostButtonStyle}"
+                    Click="OnResetClick"/>
+        </StackPanel>
+
+        <StackPanel x:Name="PauseRow" Margin="0,4,0,22">
+            <TextBlock x:Name="PauseLabel"
+                       Margin="0,0,0,8"
+                       FontSize="12"
+                       Foreground="{DynamicResource T.TextMuted}"/>
+            <!-- Wraps rather than clips: "Until I turn it back on" does not fit
+                 on one line, and neither does its Russian equivalent. -->
+            <WrapPanel>
+                <Button x:Name="Pause30Button" Style="{StaticResource SmallButtonStyle}"
+                        Margin="0,0,6,6" Click="OnPause30Click"/>
+                <Button x:Name="Pause1hButton" Style="{StaticResource SmallButtonStyle}"
+                        Margin="0,0,6,6" Click="OnPause1hClick"/>
+                <Button x:Name="Pause2hButton" Style="{StaticResource SmallButtonStyle}"
+                        Margin="0,0,6,6" Click="OnPause2hClick"/>
+                <Button x:Name="PauseForeverButton" Style="{StaticResource SmallButtonStyle}"
+                        Margin="0,0,0,6" Click="OnPauseForeverClick"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="ResumeRow" Orientation="Horizontal" Margin="0,4,0,22" Visibility="Collapsed">
+            <Button x:Name="ResumeButton"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Click="OnResumeClick"/>
+        </StackPanel>
+
+        <Border Height="1" Background="{DynamicResource T.Border}" Margin="0,0,0,20"/>
+
+        <TextBlock x:Name="SettingsLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <local:SettingsPanel x:Name="Settings"/>
+
+        <Border Height="1" Background="{DynamicResource T.Border}" Margin="0,22,0,16"/>
+
+        <TextBlock x:Name="RestNote"
+                   FontSize="12"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,14"
+                   Foreground="{DynamicResource T.TextMuted}"/>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="OpenJsonButton"
+                        Style="{StaticResource SmallButtonStyle}"
+                        Margin="0,0,6,0"
+                        Click="OnOpenJsonClick"/>
+                <Button x:Name="OpenLogButton"
+                        Style="{StaticResource SmallButtonStyle}"
+                        Click="OnOpenLogClick"/>
+            </StackPanel>
+            <Button x:Name="CloseButton"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Click="OnCloseClick"
+                    IsDefault="True"/>
+        </Grid>
+
+    </StackPanel>
+    </ScrollViewer>
+</Window>

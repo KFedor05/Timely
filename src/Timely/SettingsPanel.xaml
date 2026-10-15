@@ -1,0 +1,117 @@
+<UserControl x:Class="Timely.SettingsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FontFamily="Segoe UI">
+
+    <StackPanel>
+
+        <TextBlock x:Name="IntervalLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+            <RadioButton x:Name="Interval20" GroupName="Interval" Style="{StaticResource SegmentStyle}"
+                         Tag="20" Checked="OnIntervalChanged"/>
+            <RadioButton x:Name="Interval30" GroupName="Interval" Style="{StaticResource SegmentStyle}"
+                         Tag="30" Checked="OnIntervalChanged"/>
+        </StackPanel>
+
+        <TextBlock x:Name="MiniDurationLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <WrapPanel Margin="0,0,0,20">
+            <RadioButton x:Name="Mini20" GroupName="MiniDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="20" Checked="OnMiniDurationChanged"/>
+            <RadioButton x:Name="Mini30" GroupName="MiniDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="30" Checked="OnMiniDurationChanged"/>
+            <RadioButton x:Name="Mini60" GroupName="MiniDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="60" Checked="OnMiniDurationChanged"/>
+        </WrapPanel>
+
+        <TextBlock x:Name="LongFrequencyLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <WrapPanel Margin="0,0,0,12">
+            <RadioButton x:Name="LongOff" GroupName="LongFrequency" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="0" Checked="OnLongFrequencyChanged"/>
+            <RadioButton x:Name="LongEvery2" GroupName="LongFrequency" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="2" Checked="OnLongFrequencyChanged"/>
+            <RadioButton x:Name="LongEvery3" GroupName="LongFrequency" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="3" Checked="OnLongFrequencyChanged"/>
+            <RadioButton x:Name="LongEvery4" GroupName="LongFrequency" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="4" Checked="OnLongFrequencyChanged"/>
+            <RadioButton x:Name="LongEvery5" GroupName="LongFrequency" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="5" Checked="OnLongFrequencyChanged"/>
+        </WrapPanel>
+
+        <TextBlock x:Name="LongDurationLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <WrapPanel x:Name="LongDurationOptions" Margin="0,0,0,20">
+            <RadioButton x:Name="Long1" GroupName="LongDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="1" Checked="OnLongDurationChanged"/>
+            <RadioButton x:Name="Long3" GroupName="LongDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="3" Checked="OnLongDurationChanged"/>
+            <RadioButton x:Name="Long5" GroupName="LongDuration" Style="{StaticResource SegmentStyle}"
+                         Tag="5" Checked="OnLongDurationChanged"/>
+        </WrapPanel>
+
+        <TextBlock x:Name="WarningLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <WrapPanel Margin="0,0,0,20">
+            <RadioButton x:Name="Warning10" GroupName="Warning" Style="{StaticResource SegmentStyle}"
+                         Tag="10" Checked="OnWarningChanged"/>
+            <RadioButton x:Name="Warning30" GroupName="Warning" Style="{StaticResource SegmentStyle}"
+                         Tag="30" Checked="OnWarningChanged"/>
+            <RadioButton x:Name="Warning60" GroupName="Warning" Style="{StaticResource SegmentStyle}"
+                         Tag="60" Checked="OnWarningChanged"/>
+        </WrapPanel>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,16,0">
+                <TextBlock x:Name="StrictLabel" FontSize="15" Foreground="{DynamicResource T.Text}"/>
+                <TextBlock x:Name="StrictHint" FontSize="12" Margin="0,4,0,0"
+                           TextWrapping="Wrap" Foreground="{DynamicResource T.TextMuted}"/>
+            </StackPanel>
+            <CheckBox x:Name="StrictSwitch" Grid.Column="1" Style="{StaticResource SwitchStyle}"
+                      Checked="OnStrictChanged" Unchecked="OnStrictChanged"/>
+        </Grid>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,16,0">
+                <TextBlock x:Name="AutostartLabel"
+                           FontSize="15"
+                           Foreground="{DynamicResource T.Text}"/>
+                <TextBlock x:Name="AutostartHint"
+                           FontSize="12"
+                           Margin="0,4,0,0"
+                           TextWrapping="Wrap"
+                           Foreground="{DynamicResource T.TextMuted}"/>
+            </StackPanel>
+
+            <CheckBox x:Name="AutostartSwitch"
+                      Grid.Column="1"
+                      Style="{StaticResource SwitchStyle}"
+                      Checked="OnAutostartChanged"
+                      Unchecked="OnAutostartChanged"/>
+        </Grid>
+
+        <TextBlock x:Name="LanguageLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+            <RadioButton x:Name="LangEn" GroupName="Lang" Style="{StaticResource SegmentStyle}"
+                         Checked="OnLanguageChanged"/>
+            <RadioButton x:Name="LangRu" GroupName="Lang" Style="{StaticResource SegmentStyle}"
+                         Checked="OnLanguageChanged"/>
+        </StackPanel>
+
+        <TextBlock x:Name="ThemeLabel" Style="{StaticResource SectionLabelStyle}"/>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton x:Name="ThemeSystem" GroupName="Theme" Style="{StaticResource SegmentStyle}"
+                         Checked="OnThemeChanged"/>
+            <RadioButton x:Name="ThemeLight" GroupName="Theme" Style="{StaticResource SegmentStyle}"
+                         Checked="OnThemeChanged"/>
+            <RadioButton x:Name="ThemeDark" GroupName="Theme" Style="{StaticResource SegmentStyle}"
+                         Checked="OnThemeChanged"/>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
