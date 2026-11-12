@@ -6,12 +6,16 @@
     <StackPanel>
 
         <TextBlock x:Name="IntervalLabel" Style="{StaticResource SectionLabelStyle}"/>
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+        <WrapPanel Margin="0,0,0,12">
+            <RadioButton x:Name="Interval10" GroupName="Interval" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="10" Checked="OnIntervalChanged"/>
+            <RadioButton x:Name="Interval15" GroupName="Interval" Style="{StaticResource SegmentStyle}"
+                         Margin="0,0,0,8" Tag="15" Checked="OnIntervalChanged"/>
             <RadioButton x:Name="Interval20" GroupName="Interval" Style="{StaticResource SegmentStyle}"
-                         Tag="20" Checked="OnIntervalChanged"/>
+                         Margin="0,0,0,8" Tag="20" Checked="OnIntervalChanged"/>
             <RadioButton x:Name="Interval30" GroupName="Interval" Style="{StaticResource SegmentStyle}"
-                         Tag="30" Checked="OnIntervalChanged"/>
-        </StackPanel>
+                         Margin="0,0,0,8" Tag="30" Checked="OnIntervalChanged"/>
+        </WrapPanel>
 
         <TextBlock x:Name="MiniDurationLabel" Style="{StaticResource SectionLabelStyle}"/>
         <WrapPanel Margin="0,0,0,20">

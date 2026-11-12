@@ -62,6 +62,21 @@ internal static class Program
 
     private static void IntervalSelection()
     {
+        foreach (var minutes in new[] { 10, 15 })
+        {
+            var shortInterval = NewSim();
+            shortInterval.Run(TimeSpan.FromMinutes(5));
+            shortInterval.Scheduler.SetIntervalMinutes(minutes);
+            Check($"selecting {minutes} minutes starts a full interval",
+                shortInterval.ElapsedTime == TimeSpan.Zero &&
+                shortInterval.Scheduler.TimeUntilBreak == TimeSpan.FromMinutes(minutes));
+            shortInterval.Run(TimeSpan.FromMinutes(minutes) - TimeSpan.FromSeconds(1));
+            Check($"{minutes} minute interval does not fire early", shortInterval.Breaks.Count == 0);
+            shortInterval.Run(TimeSpan.FromSeconds(1));
+            Check($"{minutes} minute interval fires at its deadline",
+                shortInterval.Breaks.Count == 1 && shortInterval.Breaks[0].At == Start.AddMinutes(5 + minutes));
+        }
+
         var sim = NewSim();
         sim.Run(TimeSpan.FromMinutes(15));
         sim.Scheduler.SetIntervalMinutes(30);

@@ -52,7 +52,7 @@ current break finishes or is skipped.
 
 | Setting | Options | Default |
 |---|---|---|
-| Break interval | 20 or 30 minutes | 20 minutes |
+| Break interval | 10, 15, 20, or 30 minutes | 20 minutes |
 | Mini break duration | 20 seconds, 30 seconds, or 1 minute | 30 seconds |
 | Long breaks | Off, every 2nd, 3rd, 4th, or 5th break | Every 3rd |
 | Long break duration | 1, 3, or 5 minutes | 5 minutes |
@@ -171,7 +171,7 @@ dotnet run --project tools/IconGen/IconGen.csproj -c Release -- src/Timely/timel
 
 - The break window appears only on the primary monitor.
 - There are no global hotkeys.
-- Intervals other than 20/30 minutes require editing JSON.
+- Intervals other than 10/15/20/30 minutes require editing JSON.
 - In normal mode, `allowSkip=false` hides Skip and disables Esc, but does not block Alt+F4.
 - Actual clean-system, sign-in, and multi-monitor/DPI testing are still required.
 

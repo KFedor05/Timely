@@ -30,6 +30,8 @@ public partial class SettingsPanel : UserControl
         _settings = scheduler.Settings;
 
         _loading = true;
+        Interval10.IsChecked = _settings.IntervalMinutes == 10;
+        Interval15.IsChecked = _settings.IntervalMinutes == 15;
         Interval20.IsChecked = _settings.IntervalMinutes == 20;
         Interval30.IsChecked = _settings.IntervalMinutes == 30;
         Mini20.IsChecked = _settings.MiniBreakSeconds == 20;
@@ -63,6 +65,8 @@ public partial class SettingsPanel : UserControl
     public void ApplyTexts()
     {
         IntervalLabel.Text = Loc.T("settings.interval");
+        Interval10.Content = Loc.T("settings.interval.10m");
+        Interval15.Content = Loc.T("settings.interval.15m");
         Interval20.Content = Loc.T("settings.interval.20m");
         Interval30.Content = Loc.T("settings.interval.30m");
 

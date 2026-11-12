@@ -96,6 +96,8 @@ public static class Loc
         ["status.next"] = "{0} in {1}",
 
         ["settings.interval"] = "Break interval",
+        ["settings.interval.10m"] = "10 minutes",
+        ["settings.interval.15m"] = "15 minutes",
         ["settings.interval.20m"] = "20 minutes",
         ["settings.interval.30m"] = "30 minutes",
         ["settings.miniDuration"] = "Mini break duration",
@@ -162,6 +164,8 @@ public static class Loc
         ["status.next"] = "{0} через {1}",
 
         ["settings.interval"] = "Интервал между перерывами",
+        ["settings.interval.10m"] = "10 минут",
+        ["settings.interval.15m"] = "15 минут",
         ["settings.interval.20m"] = "20 минут",
         ["settings.interval.30m"] = "30 минут",
         ["settings.miniDuration"] = "Длительность мини-перерыва",
